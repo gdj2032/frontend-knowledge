@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>transition过渡动画</title>
+</head>
+
+<style>
+  /* 1 */
+  #color {
+    width: 100px;
+    height: 40px;
+    cursor: pointer;
+    transition: background-color 3s linear 0.1s, width 1s linear, height 1s linear;
+    /* transition-property: background-color;
+    transition-duration: 3s;
+    transition-timing-function: linear;
+    transition-delay: 0.1s; */
+  }
+
+  #color:hover {
+    /* 需要加上 !important 才是最高优先级 */
+    background-color: #00ccff !important;
+  }
+
+
+  /* 2 */
+  #digit {
+    width: .5em;
+    overflow: hidden;
+    font: 32px monospace;
+    cursor: pointer;
+  }
+
+  #stripe1,
+  #stripe2 {
+    display: inline-block
+  }
+
+  #stripe1.animate,
+  #stripe2.animate {
+    transform: translate(-90%);
+    transition-property: transform;
+    transition-duration: 9s;
+    transition-timing-function: linear;
+  }
+
+  /* 3 */
+  #train {
+    position: relative;
+    cursor: pointer;
+    width: 177px;
+    height: 160px;
+    left: 0;
+    transition: left 3s cubic-bezier(0, 0, 1, 1);
+  }
+</style>
+
+<script>
+  function onColor() {
+    document.getElementById("color").style.backgroundColor = 'red';
+    document.getElementById("color").style.width = '200px';
+    document.getElementById("color").style.height = '100px';
+  };
+
+  function onReset() {
+    document.getElementById("color").style.backgroundColor = 'transparent';
+    document.getElementById("color").style.width = '100px';
+    document.getElementById("color").style.height = '40px';
+  }
+
+  function onStripe1() {
+    const sDom = document.getElementById("stripe1")
+    sDom.classList.add('animate')
+  };
+
+  function onStripe2() {
+    const sDom = document.getElementById("stripe2")
+    // 从指定时间开始
+    sDom.style.transitionDelay = '-3s';
+    sDom.classList.add('animate')
+  };
+
+  function onTrain() {
+    const sDom = document.getElementById("train")
+    sDom.style.left = '450px';
+  }
+</script>
+
+<body>
+
+  <div>
+    <h1>1. 常规用法</h1>
+    <button id="color" onclick="onColor()">点击</button>
+    <button id="" onclick="onReset()">重置</button>
+  </div>
+
+  <div>
+    <h1>2. 数字从 0 到 9 的动画，使用了 CSS translate 方法：</h1>
+    <div>默认从0开始</div>
+    <div id="digit">
+      <div id="stripe1" onclick="onStripe1()">0123456789</div>
+    </div>
+    <div>从指定时间开始</div>
+    <div id="digit">
+      <div id="stripe2" onclick="onStripe2()">0123456789</div>
+    </div>
+  </div>
+
+  <div>
+    <h1>3. 贝塞尔曲线(cubic-bezier)</h1>
+    <button onclick="onTrain()">点击</button>
+    <div>
+      <img id="train" src="./cubic-bezier.png">
+    </div>
+  </div>
+</body>
+
+</html>
