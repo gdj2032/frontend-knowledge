@@ -1,4 +1,4 @@
-# CSS 动画
+# CSS 动画 animation
 
 - 位置 - 平移
 - 方向 - 旋转
@@ -73,7 +73,7 @@ y 轴表示过程的完成度：0 —— 属性的起始值，1 —— 属性的
 
 正如我们所见，这就是条直线。随着时间 x 推移，完成度 y 稳步从 0 增长到 1。
 
-### animation 关键帧动画 keyframes
+### keyframes 关键帧动画
 
 相当于多个补间动画组合到一起
 
@@ -102,26 +102,68 @@ y 轴表示过程的完成度：0 —— 属性的起始值，1 —— 属性的
   - backwards 动画停了还得反着做一遍回去
   - 在动画执行之前和之后如何给动画的目标应用样式。
 
-```css
-#one {
-  width: 50px;
-  height: 50px;
-  background-color: orange;
-  animation: run;
-  animation-delay: 0.5s;
-  animation-duration: 2s;
-  animation-fill-mode: forwards;
-}
-@keyframes run {
-  0% {
-    width: 100px;
+参考[关键帧动画](./keyframes.html)
+
+```html
+<div class="progress"></div>
+
+<style>
+  @keyframes go-left-right {        /* 指定一个名字："go-left-right" */
+    from { left: 0px; }             /* 从 left: 0px 开始 */
+    to { left: calc(100% - 50px); } /* 移动至 left: 100%-50px */
   }
-  50% {
-    width: 400px;
-    background-color: blue;
+
+  .progress {
+    animation: go-left-right 3s infinite alternate;
+    /* 把动画 "go-left-right" 应用到元素上
+       持续 3 秒
+       持续次数：infinite
+       每次都改变方向
+    */
+
+    position: relative;
+    border: 2px solid green;
+    width: 50px;
+    height: 20px;
+    background: lime;
   }
-  100% {
-    width: 800px;
-  }
-}
+</style>
 ```
+
+### 逐帧动画 frame by frame
+
+关键帧之间是有补间的，会选一个效果过渡过去，而逐帧动画则是每个 keyframe 之间没有过渡，直接切换过去
+
+参考[猎豹奔跑](./animal.html)
+
+关键是使用下面这行 CSS
+
+`animation-timing-function: steps(1);`
+
+这个 step 是指定关键帧之间需要有几个画面
+
+### 过渡动画和关键帧动画的区别
+
+- 过渡动画需要有状态变化
+- 关键帧动画不需要状态变化
+- 关键帧动画能控制更精细
+
+### CSS 动画的性能
+
+- CSS 动画不差
+- 部分情况下优于 JS
+- JS 可以做到更精细
+- 含高危属性，会让性能变差 (如 box-shadow)
+
+### display 属性
+
+当改变元素 display 属性时，过渡属性 transition 失效。
+
+原因：
+display:none 的时候，页面文档流中将不会存在该元素。transition 无法对一个从有到无的元素产生过渡效果。
+
+解决方法：
+
+1. 改变元素的宽/高为 0px,达到隐藏的目的。
+2. 使用 visibility 替代 display。
+3. react 使用 react-transition-group 实现
