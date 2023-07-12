@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>flex-grow</title>
+</head>
+
+<style>
+  .flex {
+    width: 1000px;
+    display: flex;
+    border: 1px solid #ccc;
+    margin-bottom: 20px;
+    height: 200px;
+  }
+
+  .flex-wrap {}
+
+  .flex-item {
+    width: 100px;
+    height: 100px;
+  }
+
+  /* 剩余空间 600px 分成4份(1为3份+2为1份) 1占据剩余空间的3分 2占据剩余空间的1分 */
+  .flex-item1 {
+    background-color: #ef4343;
+    flex-grow: 3;
+  }
+
+  .flex-item2 {
+    background-color: #e9ef43;
+    flex-grow: 1;
+  }
+
+  .flex-item3 {
+    background-color: #43efde;
+  }
+
+  .flex-item4 {
+    background-color: #9643ef;
+  }
+</style>
+
+<body>
+
+</body>
+
+<div class="container">
+  <h1>flex-grow</h1>
+  <div class="flex flex-wrap">
+    <div class="flex-item flex-item1">0</div>
+    <div class="flex-item flex-item2">1</div>
+    <div class="flex-item flex-item3">2</div>
+    <div class="flex-item flex-item4">3</div>
+  </div>
+</div>
+
+</html>

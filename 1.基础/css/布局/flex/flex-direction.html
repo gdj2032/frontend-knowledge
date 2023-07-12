@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>flex-direction属性</title>
+</head>
+
+<style>
+  .flex {
+    display: flex;
+    border: 1px solid #ccc;
+    margin-bottom: 20px;
+  }
+
+  .flex-direction-row {
+    flex-direction: row;
+  }
+
+  .flex-direction-row-reverse {
+    flex-direction: row-reverse;
+  }
+
+  .flex-direction-column {
+    flex-direction: column;
+  }
+
+  .flex-direction-column-reverse {
+    flex-direction: column-reverse;
+  }
+
+  .flex-item {
+    width: 200px;
+    height: 200px;
+  }
+
+  .flex-item1 {
+    background-color: #ef4343;
+  }
+
+  .flex-item2 {
+    background-color: #e9ef43;
+  }
+
+  .flex-item3 {
+    background-color: #43efde;
+  }
+
+  .flex-item4 {
+    background-color: #9643ef;
+  }
+</style>
+
+<body>
+
+</body>
+
+<div>
+  <div class="flex flex-direction-row">
+    <div class="flex-item flex-item1">row</div>
+    <div class="flex-item flex-item2">1</div>
+    <div class="flex-item flex-item3">2</div>
+    <div class="flex-item flex-item4">3</div>
+  </div>
+  <div class="flex flex-direction-row-reverse">
+    <div class="flex-item flex-item1">row-reverse</div>
+    <div class="flex-item flex-item2">1</div>
+    <div class="flex-item flex-item3">2</div>
+    <div class="flex-item flex-item4">3</div>
+  </div>
+  <div class="flex flex-direction-column">
+    <div class="flex-item flex-item1">column</div>
+    <div class="flex-item flex-item2">1</div>
+    <div class="flex-item flex-item3">2</div>
+    <div class="flex-item flex-item4">3</div>
+  </div>
+  <div class="flex flex-direction-column-reverse">
+    <div class="flex-item flex-item1">column-reverse</div>
+    <div class="flex-item flex-item2">1</div>
+    <div class="flex-item flex-item3">2</div>
+    <div class="flex-item flex-item4">3</div>
+  </div>
+</div>
+
+</html>

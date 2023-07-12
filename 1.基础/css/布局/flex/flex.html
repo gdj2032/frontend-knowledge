@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>flex布局</title>
+</head>
+
+<style>
+  .flex {
+    display: flex;
+    border: 1px solid #ccc;
+    margin-bottom: 20px;
+    height: 200px;
+  }
+
+  .flex-wrap {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .flex-wrap-reverse {
+    flex-direction: row;
+    flex-wrap: wrap-reverse;
+  }
+
+  .flex-column-wrap {
+    flex-direction: column;
+    flex-wrap: wrap;
+  }
+
+  .flex-column-wrap-reverse {
+    flex-direction: column-reverse;
+    flex-wrap: wrap-reverse;
+  }
+
+  .flex-item {
+    width: 33%;
+    height: 100px;
+  }
+
+  .flex-item1 {
+    background-color: #ef4343;
+  }
+
+  .flex-item2 {
+    background-color: #e9ef43;
+  }
+
+  .flex-item3 {
+    background-color: #43efde;
+  }
+
+  .flex-item4 {
+    background-color: #9643ef;
+  }
+</style>
+
+<body>
+
+</body>
+
+<div class="container">
+  <h1>1. flex-direction</h1>
+  <div class="flex flex-wrap">
+    <div class="flex-item flex-item1">
+      <div>flex-direction: row;</div>
+      <div>flex-wrap: wrap;</div>
+    </div>
+    <div class="flex-item flex-item2">1</div>
+    <div class="flex-item flex-item3">2</div>
+    <div class="flex-item flex-item4">3</div>
+  </div>
+  <div class="flex flex-wrap-reverse">
+    <div class="flex-item flex-item1">
+      <div>flex-direction: row;</div>
+      <div>flex-wrap: wrap-reverse;</div>
+    </div>
+    <div class="flex-item flex-item2">1</div>
+    <div class="flex-item flex-item3">2</div>
+    <div class="flex-item flex-item4">3</div>
+  </div>
+  <div class="flex flex-column-wrap">
+    <div class="flex-item flex-item1">
+      <div>flex-direction: column;</div>
+      <div>flex-wrap: wrap;</div>
+    </div>
+    <div class="flex-item flex-item2">1</div>
+    <div class="flex-item flex-item3">2</div>
+    <div class="flex-item flex-item4">3</div>
+  </div>
+  <div class="flex flex-column-wrap-reverse">
+    <div class="flex-item flex-item1">
+      <div>flex-direction: column-reverse;</div>
+      <div>flex-wrap: wrap-reverse;</div>
+    </div>
+    <div class="flex-item flex-item2">1</div>
+    <div class="flex-item flex-item3">2</div>
+    <div class="flex-item flex-item4">3</div>
+  </div>
+</div>
+
+</html>

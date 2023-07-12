@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>flex-order</title>
+</head>
+
+<style>
+  .flex {
+    display: flex;
+    border: 1px solid #ccc;
+    margin-bottom: 20px;
+    height: 200px;
+  }
+
+  .flex-wrap {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .flex-item {
+    width: 33%;
+    height: 100px;
+  }
+
+  .flex-item1 {
+    background-color: #ef4343;
+    order: 2;
+  }
+
+  .flex-item2 {
+    background-color: #e9ef43;
+    order: 1;
+  }
+
+  .flex-item3 {
+    background-color: #43efde;
+    order: 3;
+  }
+
+  .flex-item4 {
+    background-color: #9643ef;
+    order: 4;
+  }
+</style>
+
+<body>
+
+</body>
+
+<div class="container">
+  <h1>flex-order</h1>
+  <div class="flex flex-wrap">
+    <div class="flex-item flex-item1">0</div>
+    <div class="flex-item flex-item2">1</div>
+    <div class="flex-item flex-item3">2</div>
+    <div class="flex-item flex-item4">3</div>
+  </div>
+</div>
+
+</html>

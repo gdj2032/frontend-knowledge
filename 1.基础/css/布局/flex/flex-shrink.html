@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>flex-shrink</title>
+</head>
+
+<style>
+  .flex {
+    width: 1000px;
+    display: flex;
+    border: 1px solid #ccc;
+    margin-bottom: 20px;
+    height: 400px;
+  }
+
+  .flex-shrink1>.flex-item {
+    flex-shrink: 0;
+  }
+
+  .flex-shrink2>.flex-item {
+    flex-shrink: 1;
+  }
+
+  .flex-shrink3>.flex-item {
+    flex-shrink: 1;
+  }
+
+  .flex-shrink3>.flex-item1 {
+    flex-shrink: 0;
+  }
+
+  .flex-shrink4>.flex-item1 {
+    flex-shrink: 0.1;
+  }
+
+  .flex-shrink4>.flex-item2 {
+    flex-shrink: 0.2;
+  }
+
+  .flex-shrink4>.flex-item3 {
+    flex-shrink: 0.2;
+  }
+
+  .flex-shrink4>.flex-item4 {
+    flex-shrink: 0.1;
+  }
+
+
+  .flex-shrink5>.flex-item1 {
+    flex-shrink: 0.2;
+  }
+
+  .flex-shrink5>.flex-item2 {
+    flex-shrink: 0.3;
+  }
+
+  .flex-shrink5>.flex-item3 {
+    flex-shrink: 0.6;
+  }
+
+  .flex-shrink5>.flex-item4 {
+    flex-shrink: 0.9;
+  }
+
+  .flex-item {
+    width: 300px;
+    height: 200px;
+  }
+
+  .flex-item1 {
+    background-color: #ef4343;
+    /* flex-shrink: 1; */
+  }
+
+  .flex-item2 {
+    background-color: #e9ef43;
+    /* flex-shrink: 2; */
+  }
+
+  .flex-item3 {
+    background-color: #43efde;
+    /* flex-shrink: 3; */
+  }
+
+  .flex-item4 {
+    background-color: #9643ef;
+    /* flex-shrink: 4; */
+  }
+</style>
+
+<body>
+
+</body>
+
+<div class="container">
+  <h1>flex-shrink</h1>
+
+  <h2>如果所有项目的 flex-shrink 属性都为0 不压缩项目</h2>
+  <div class="flex flex-shrink1">
+    <div class="flex-item flex-item1">0</div>
+    <div class="flex-item flex-item2">1</div>
+    <div class="flex-item flex-item3">2</div>
+    <div class="flex-item flex-item4">3</div>
+  </div>
+
+  <h2>如果所有项目的 flex-shrink 属性都为1，当空间不足时，都将等比例缩小</h2>
+  <div class="flex flex-shrink2">
+    <div class="flex-item flex-item1">0</div>
+    <div class="flex-item flex-item2">1</div>
+    <div class="flex-item flex-item3">2</div>
+    <div class="flex-item flex-item4">3</div>
+  </div>
+
+  <h2>如果一个项目的 flex-shrink 属性为0，其他项目都为1，则空间不足时，前者不缩小</h2>
+  <div class="flex flex-shrink3">
+    <div class="flex-item flex-item1">0(shrink = 0)</div>
+    <div class="flex-item flex-item2">1</div>
+    <div class="flex-item flex-item3">2</div>
+    <div class="flex-item flex-item4">3</div>
+  </div>
+
+  <h2>如果所有项目的 flex-shrink 属性和小于1，只收缩溢出空间的一部分</h2>
+  <div class="flex flex-shrink4">
+    <div class="flex-item flex-item1">
+      0(shrink = 0.1)
+      <div>总溢出200px, 每个项目减去对应的shrink</div>
+      <div>0: 200 * 0.1 = 20px </div>
+      <div>1: 200 * 0.2 = 40px </div>
+      <div>2: 200 * 0.2 = 40px </div>
+      <div>3: 200 * 0.1 = 20px </div>
+    </div>
+    <div class="flex-item flex-item2">1(shrink = 0.2)</div>
+    <div class="flex-item flex-item3">2(shrink = 0.2)</div>
+    <div class="flex-item flex-item4">3(shrink = 0.1)</div>
+  </div>
+  <h2>如果所有项目的 flex-shrink 属性和大于1，空间不足时，都将等比例缩小</h2>
+  <div class="flex flex-shrink5">
+    <div class="flex-item flex-item1">
+      0(shrink = 0.2)
+      <div>总溢出200px, 总shrink=2</div>
+      <div>0: 200 * (0.2/2) = 20px </div>
+      <div>1: 200 * (0.3/2) = 30px </div>
+      <div>2: 200 * (0.6/2) = 60px </div>
+      <div>3: 200 * (0.9/2) = 90px </div>
+    </div>
+    <div class="flex-item flex-item2">1(shrink = 0.3)</div>
+    <div class="flex-item flex-item3">2(shrink = 0.6)</div>
+    <div class="flex-item flex-item4">3(shrink = 0.9)</div>
+  </div>
+</div>
+
+</html>
