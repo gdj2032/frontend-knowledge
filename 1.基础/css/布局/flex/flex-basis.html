@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>flex-basis</title>
+</head>
+
+<style>
+  .flex {
+    width: 800px;
+    display: flex;
+    border: 1px solid #ccc;
+    margin-bottom: 20px;
+    height: 200px;
+  }
+
+  .flex-item {
+    width: 200px;
+    height: 100px;
+  }
+
+  .flex-item1 {
+    background-color: #ef4343;
+  }
+
+  .flex-item2 {
+    background-color: #e9ef43;
+  }
+
+  .flex-item3 {
+    background-color: #43efde;
+  }
+
+  .flex-item4 {
+    background-color: #9643ef;
+  }
+
+  .flex-basis1>.flex-item1 {
+    flex-basis: 300px;
+  }
+
+  .flex-basis2>.flex-item1 {
+    width: 400px;
+  }
+
+  .flex-basis3>.flex-item1 {
+    flex-basis: 400px;
+  }
+
+  .flex-basis4>.flex-item1 {
+    flex-basis: 400px;
+    max-width: 300px;
+  }
+
+  .flex-basis4>.flex-item2 {
+    flex-basis: 200px;
+    min-width: 300px;
+  }
+</style>
+
+<body>
+
+</body>
+
+<div class="container">
+  <h1>flex-basis</h1>
+
+  <ul>
+    <li>
+      <div>默认每个item的宽度都是200px</div>
+    </li>
+  </ul>
+
+  <h2>1. width和flex-basis同时存在时. 当flex-basis和width属性同时存在时，width属性不生效，flex item的宽度为flex-basis设置的宽度</h2>
+  <div class="flex flex-basis1">
+    <div class="flex-item flex-item1">
+      <div>0</div>
+      <div>flex-basis: 300px;</div>
+    </div>
+    <div class="flex-item flex-item2">1</div>
+    <div class="flex-item flex-item3">2</div>
+    <div class="flex-item flex-item4">3</div>
+  </div>
+
+  <h2>2. 只存在width情况，且flex items宽度和大于flex容器宽度. 当flex空间不够时，由于flex-shrink的默认值为1，所以所有flex items容器等比例被压缩</h2>
+  <div class="flex flex-basis2">
+    <div class="flex-item flex-item1">
+      <div>0</div>
+      <div>父容器宽度800px</div>
+    </div>
+    <div class="flex-item flex-item2">1</div>
+    <div class="flex-item flex-item3">2</div>
+    <div class="flex-item flex-item4">3</div>
+  </div>
+
+  <h2>3. 当存在flex-basis，所有的flex item是宽度之和大于flex容器宽度. 这种情况同2类似，都是在flex-shrink的作用下等比例缩小</h2>
+  <div class="flex flex-basis3">
+    <div class="flex-item flex-item1">0</div>
+    <div class="flex-item flex-item2">1</div>
+    <div class="flex-item flex-item3">2</div>
+    <div class="flex-item flex-item4">3</div>
+  </div>
+
+  <h2>4. max-width对flex items宽度的影响</h2>
+  <h2>5. min-width对flex items宽度的影响</h2>
+  <div class="flex flex-basis4">
+    <div class="flex-item flex-item1">
+      <div>0</div>
+      <div>max-width: 300px</div>
+      <div>max-width决定了flex items的最大宽度</div>
+    </div>
+    <div class="flex-item flex-item2">
+      <div>1</div>
+      <div>min-width: 300px</div>
+      <div>min-width决定了flex items的最小宽度</div>
+    </div>
+    <div class="flex-item flex-item3">2</div>
+    <div class="flex-item flex-item4">3</div>
+  </div>
+</div>
+
+</html>
+<!--
+  <h2></h2>
+  <div class="flex flex-basis">
+    <div class="flex-item flex-item1">0</div>
+    <div class="flex-item flex-item2">1</div>
+    <div class="flex-item flex-item3">2</div>
+    <div class="flex-item flex-item4">3</div>
+  </div>
+-->
