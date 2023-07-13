@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>三栏-绝对定位</title>
+</head>
+
+<style>
+  * {
+    padding: 0;
+    margin: 0;
+  }
+
+  .container {
+    position: relative;
+    width: 100%;
+    min-width: 1000px;
+    height: 200px;
+  }
+
+  .left {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 300px;
+    height: 100%;
+    background-color: #42b4d7;
+  }
+
+  .right {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 300px;
+    height: 100%;
+    background-color: #bc42d7;
+  }
+
+  .center {
+    position: absolute;
+    left: 300px;
+    right: 300px;
+    top: 0;
+    height: 100%;
+    background-color: #a5d742;
+  }
+</style>
+
+<body>
+
+  <div class="container">
+    <div class="left">left</div>
+    <div class="right">right</div>
+    <div class="center">
+      <div>center</div>
+      <h3>绝对定位解决方案</h3>
+      <p>左右区域分别position: absolute，固定到左右两边</p>
+      <p>中间区域position: absolute；left：300px; right: 300px</p>
+      <p>给总的宽度加一个min-width，不然缩小窗口会有毛病</p>
+    </div>
+  </div>
+
+</body>
+
+</html>

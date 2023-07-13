@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>三栏-浮动方案</title>
+</head>
+
+<style>
+  * {
+    padding: 0;
+    margin: 0;
+  }
+
+  .container {
+    width: 100%;
+    height: 200px;
+  }
+
+  .left {
+    width: 300px;
+    height: 100%;
+    float: left;
+    background-color: #42b4d7;
+  }
+
+  .right {
+    width: 300px;
+    height: 100%;
+    float: right;
+    background-color: #bc42d7;
+  }
+
+  .center {
+    width: 100%;
+    height: 100%;
+    background-color: #a5d742;
+  }
+</style>
+
+<body>
+
+  <div class="container">
+    <div class="left">left</div>
+    <div class="right">right</div>
+    <div class="center">
+      <div>center</div>
+      <h3>浮动解决方案</h3>
+      <p>方法：left和right写在center前面，并且分别左右浮动；</p>
+      <p>
+        中间的这个div因为是块级元素，所以在水平方向上按照他的包容块自动撑开。
+      </p>
+      <p>简单，但是中心部分过长下面会溢出，然后文字就会跑到两边去。</p>
+    </div>
+  </div>
+
+</body>
+
+</html>
