@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>grid网格布局</title>
+</head>
+
+<style>
+  .container {}
+
+  .container1 {
+    display: grid;
+  }
+
+  .grid-item {
+    height: 80px;
+    margin-bottom: 10px;
+  }
+
+  .grid-item1 {
+    background-color: #ef4343;
+  }
+
+  .grid-item2 {
+    background-color: #e9ef43;
+  }
+
+  .grid-item3 {
+    background-color: #43efde;
+  }
+
+  .grid-item4 {
+    background-color: #9643ef;
+  }
+
+  .container2 {
+    display: inline-grid;
+  }
+
+  .container3 {
+    display: grid;
+    grid-template-columns: 90px 190px 290px;
+  }
+
+  .container3>.grid-item1 {
+    width: 90px;
+  }
+
+  .container3>.grid-item2 {
+    width: 190px;
+  }
+
+  .container3>.grid-item3 {
+    width: 290px;
+  }
+
+  .container3>.grid-item4 {
+    width: 90px;
+  }
+
+  .container4 {
+    display: grid;
+    grid-template-columns: 1fr 1fr 2fr;
+  }
+
+  .container5 {
+    display: grid;
+    grid-template-columns: 100px 25% 1fr;
+  }
+
+  .container6 {
+    display: grid;
+    grid-template-columns: minmax(auto, 50%) 1fr 300px;
+  }
+
+  .container7 {
+    display: grid;
+    grid-template-rows: repeat(4, 100px);
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .container8 {
+    display: grid;
+    grid-template-columns: 100px repeat(2, 1fr) 100px;
+  }
+
+  .container9 {
+    display: grid;
+    grid-template-columns: repeat(2, 100px);
+    grid-row-gap: 20px;
+    grid-column-gap: 100px;
+  }
+
+  .container10 {
+    display: grid;
+    grid-template-columns: repeat(2, 100px);
+    grid-gap: 100px;
+  }
+</style>
+
+<body>
+
+  <h1>grid网格布局</h1>
+
+  <h2>1.display: grid;</h2>
+  <p>网格项目按行排列，网格项目占用整个容器的宽度。</p>
+  <div class="container container1">
+    <div class="grid-item grid-item1">1</div>
+    <div class="grid-item grid-item2">2</div>
+    <div class="grid-item grid-item3">3</div>
+    <div class="grid-item grid-item4">4</div>
+  </div>
+
+  <h2>2.display: inline-grid;</h2>
+  <p>网格项目按行排列，网格项目宽度由自身宽度决定。</p>
+  <div class="container container2">
+    <div class="grid-item grid-item1">1</div>
+    <div class="grid-item grid-item2">2</div>
+    <div class="grid-item grid-item3">3</div>
+    <div class="grid-item grid-item4">4</div>
+  </div>
+
+  <h2>3.网格</h2>
+  <p>属性 grid-template-row 和 grid-template-columns 用于显示定义网格，分别用于定义行轨道和列轨道。</p>
+  <p>grid-template-columns: 90px 190px 290px; 表示第123列的宽度</p>
+  <div class="container container3">
+    <div class="grid-item grid-item1">1</div>
+    <div class="grid-item grid-item2">2</div>
+    <div class="grid-item grid-item3">3</div>
+    <div class="grid-item grid-item4">4</div>
+  </div>
+
+  <p>grid-template-columns: 1fr 1fr 2fr; fr用于表示轨道尺寸配额，表示按配额比例分配可用空间。</p>
+  <div class="container container4">
+    <div class="grid-item grid-item1">1</div>
+    <div class="grid-item grid-item2">2</div>
+    <div class="grid-item grid-item3">3</div>
+    <div class="grid-item grid-item4">4</div>
+  </div>
+
+  <p>grid-template-columns: 3rem 25% 1fr; 单位fr和其它长度单位混合使用时，fr的计算基于其它单位分配后的剩余空间。</p>
+  <div class="container container5">
+    <div class="grid-item grid-item1">1</div>
+    <div class="grid-item grid-item2">2</div>
+    <div class="grid-item grid-item3">3</div>
+    <div class="grid-item grid-item4">4</div>
+  </div>
+
+  <h2>4.轨道的最小最大尺寸设置</h2>
+  <p>grid-template-columns: minmax(auto, 50%) 1fr 300px; 函数 minmax() 用于定义轨道最小/最大边界值。</p>
+  <div class="container container6">
+    <div class="grid-item grid-item1">1</div>
+    <div class="grid-item grid-item2">2</div>
+    <div class="grid-item grid-item3">3</div>
+    <div class="grid-item grid-item4">4</div>
+  </div>
+
+  <h2>5.重复的网格轨道</h2>
+  <p>函数repeat()用来定义重复的网格轨道，尤其适用于有多个相同项目的情况下。</p>
+  <div class="container container7">
+    <div class="grid-item grid-item1">1</div>
+    <div class="grid-item grid-item2">2</div>
+    <div class="grid-item grid-item3">3</div>
+    <div class="grid-item grid-item4">4</div>
+  </div>
+
+  <p>函数repeat()可以用在轨道定义列表当中。</p>
+  <div class="container container8">
+    <div class="grid-item grid-item1">1</div>
+    <div class="grid-item grid-item2">2</div>
+    <div class="grid-item grid-item3">3</div>
+    <div class="grid-item grid-item4">4</div>
+  </div>
+
+  <h2>6.定义网格间隙</h2>
+  <p>属性 grid-column-gap 和 grid-row-gap 用于定义网格间隙。</p>
+  <div class="container container9">
+    <div class="grid-item grid-item1">1</div>
+    <div class="grid-item grid-item2">2</div>
+    <div class="grid-item grid-item3">3</div>
+    <div class="grid-item grid-item4">4</div>
+  </div>
+
+  <p> grid-gap 即表示行间隙，也表示列间隙。</p>
+  <div class="container container10">
+    <div class="grid-item grid-item1">1</div>
+    <div class="grid-item grid-item2">2</div>
+    <div class="grid-item grid-item3">3</div>
+    <div class="grid-item grid-item4">4</div>
+  </div>
+
+</body>
+
+</html>
