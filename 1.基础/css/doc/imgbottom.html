@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>文字图片缝隙</title>
+</head>
+
+<style>
+  .imgbottom1 {
+    background: yellow;
+  }
+
+  .imgbottom2 {
+    background: pink;
+  }
+
+  .imgbottom2>img {
+    vertical-align: bottom;
+    /* display: block; */
+  }
+</style>
+
+<body>
+
+</body>
+
+<h1>图片下面有一个缝隙是因为什么</h1>
+
+<div class="imgbottom1">
+  123
+  <img src="../ie-box.png" alt="" width="300" height="300">
+</div>
+
+<p>
+  原因:因为 img 也相当于一个 inline 的元素， inline 就要遵守行高的构成，它会按照 base 基线对齐，基线对齐的话那么它就会和底线间有一个缝隙。 如何解决： 因为它会遵守文字对齐方案，那么就把图片的对齐方式修改为
+  vertical-align: bottom。或者让他display: block，这样图片虽然会换行，但是没有间隙了。
+</p>
+
+<p>解决</p>
+
+<div class="imgbottom2">
+  123
+  <img src="../ie-box.png" alt="" width="300" height="300">
+</div>
+
+</html>
