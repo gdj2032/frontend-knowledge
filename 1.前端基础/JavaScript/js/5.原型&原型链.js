@@ -1,4 +1,4 @@
-// # 5.原型链
+// 5.原型&原型链
 
 function Person(name, age) {
   this.name = name;
