@@ -7,7 +7,7 @@ function Person(name, age) {
 
 Person.prototype.country = 'zg'
 Person.prototype.hairColor = 'black';
-Person.prototype.eat = () => {
+Person.prototype.eat = function () {
   return '大米饭'
 };
 
@@ -64,3 +64,8 @@ console.log({
   'Object.prototype.constructor = Object': Object.prototype.constructor === Object,
 });
 
+
+const obj = {}
+
+console.info('--- obj --->', obj.__proto__); // {}
+console.info('--- obj --->', obj.prototype); // undefined
