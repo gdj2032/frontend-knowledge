@@ -23,7 +23,7 @@ obj1.fn1('param1')
 obj1.fn1.call(obj1, 'param1')
 // 改变this指针，指向obj2
 obj1.fn1.call(obj2, 'param1')
-// apply的第二个参数为参数数
+// apply的第二个参数为参数数组
 obj1.fn1.apply(obj2, ['param1'])
 
 // bind方法返回一个函数,但不会执行，这个函数的参数继承bind方法的参数

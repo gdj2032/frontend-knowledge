@@ -140,3 +140,13 @@ p.then(e => {
 }).catch(e => {
   console.error('--- error  --->', e);
 })
+
+
+new Promise((resolve, reject) => {
+  resolve(1)
+}).then(r => {
+  console.info('--- then1 --->', r);
+  return 2
+}).then(r => {
+  console.info('--- then2 --->', r);
+})
