@@ -1,0 +1,30 @@
+# application.yml
+
+spring:
+  datasource:
+    # 驱动类名称
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    # 数据库url
+    url: jdbc:mysql://localhost:3306/blog
+    username: root
+    password: 12345678
+  servlet:
+    multipart:
+      # 配置文件上传下载的大小限制
+      max-file-size: 1MB
+      max-request-size: 1MB
+
+mybatis-plus:
+  configuration:
+    # 开启SQL语句打印
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl #开启SQL语句打印
+  # 配置mapper的扫描，找到所有的mapper.xml映射文件
+  # type-aliases-package: com.gdj.blog.mapper #配置映射类所在的包名
+  mapperLocations: classpath*:mapper/**/*Mapper.xml
+  # 开启mybatis的驼峰命名自动映射开关 dept_id -> deptId
+  map-underscore-to-camel-case: true
+
+server:
+  port: 9999
+  servlet:
+    context-path: /api
