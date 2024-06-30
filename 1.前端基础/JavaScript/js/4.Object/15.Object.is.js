@@ -1,6 +1,6 @@
 // ### 3.15 Object.is()
-let foo = { a: 1 }
-let bar = { a: 1 }
+let foo = { a: 1 };
+let bar = { a: 1 };
 let sameFoo = foo;
 
 let obj = {
@@ -15,8 +15,13 @@ let obj = {
   8: Object.is(+0, -0),
   9: Object.is(-0, -0),
   10: Object.is(NaN, 0 / 0),
-  11: Object.is(NaN, Number.NaN),
+  11: Object.is(NaN, Number.NaN)
 };
 
 console.log(JSON.stringify(obj));
 // {"0":true,"1":true,"2":true,"3":false,"4":true,"5":false,"6":true,"7":false,"8":false,"9":true,"10":true,"11":true}
+
++0 === -0; //true
+NaN === NaN; // false
+Object.is(+0, -0); // false
+Object.is(NaN, NaN); // true
