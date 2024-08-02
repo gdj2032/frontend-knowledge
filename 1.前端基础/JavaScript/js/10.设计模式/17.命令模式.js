@@ -1,8 +1,8 @@
 // ### 3.17 命令模式 Command Pattern
 
 var bindClick = function (button, func) {
-  // button.onclick = func;
-  func();
+  button.onclick = func;
+  // func();
 };
 
 var MenuBar = {
@@ -19,7 +19,9 @@ var SubMenu = {
   }
 };
 
-let button1, button2, button3;
+let button1 = document.getElementById('button1'),
+  button2 = document.getElementById('button2'),
+  button3 = document.getElementById('button3');
 
 bindClick(button1, MenuBar.refresh);
 bindClick(button2, SubMenu.add);
